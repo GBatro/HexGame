@@ -3,23 +3,24 @@ package HexBoard;
 import java.util.ArrayList;
 
 public class Hex {
+    StringBuilder sb = new StringBuilder();
     public final int id;
     private int hexNumber;
     private Resource hexType;
-    private ArrayList<Settlement> settlementList;
+    private final ArrayList<Building> buildingList;
 
     public Hex(int id) {
         this.id = id;
         this.hexNumber = -1;
         this.hexType = null;
-        this.settlementList = new ArrayList<>();
+        this.buildingList = new ArrayList<>();
     }
 
     public Hex(int id, int hexNumber, Resource hexType) {
         this.id = id;
         this.hexNumber = hexNumber;
         this.hexType = hexType;
-        this.settlementList = new ArrayList<>();
+        this.buildingList = new ArrayList<>();
     }
 
     public void setHexNumber(int hexNumber) {
@@ -34,22 +35,22 @@ public class Hex {
         this.hexType = hexType;
     }
 
-    public ArrayList<Settlement> getSettlerIDs() {
-        return settlementList;
+    public ArrayList<Building> getSettlerIDs() {
+        return buildingList;
     }
 
-    public void addSettler(Settlement settlement) {
-        settlementList.add(settlement);
+    public void addSettler(Building building) {
+        buildingList.add(building);
     }
 
     @Override
     public String toString() {
         String result = "";
-        result += id + ":\t" + hexType + " " + hexNumber;
-        for(Settlement s : settlementList) {
-            result += "\n\t" + s;
+        result = sb.append(result).append(id).append(":\t").append(hexType).append(" ").append(hexNumber).toString();
+        for(Building s : buildingList) {
+            result = sb.append(result).append("\n\t").append(s).toString();
         }
-        result += "\n";
+        result = sb.append(result).append("\n").toString();
         return result;
     }
 }

@@ -46,11 +46,11 @@ public class Hex {
     @Override
     public String toString() {
         String result = "";
-        result = sb.append(result).append(id).append(":\t").append(hexType).append(" ").append(hexNumber).toString();
+        result = sb.append(id).append(":\t").append(hexType).append(" ").append(hexNumber).toString();
         for(Building s : buildingList) {
-            result = sb.append(result).append("\n\t").append(s).toString();
+            result = sb.append("\n\t").append(s).toString();
         }
-        result = sb.append(result).append("\n").toString();
+        result = sb.append("\n").toString();
         return result;
     }
 }

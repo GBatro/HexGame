@@ -53,6 +53,7 @@ public class Board {
         int numVertices = radius*radius*6;
         Vertex[] vertices = new Vertex[numVertices];
 
+        //Vertex should include adjacent hexes
         for(int i = 0; i < numVertices; i++) {
             vertices[i] = new Vertex(i);
         }

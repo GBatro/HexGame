@@ -1,3 +1,4 @@
+import HexBoard.Board;
 import HexBoard.Hex;
 import HexBoard.Building;
 
@@ -6,7 +7,8 @@ import static HexBoard.Resource.*;
 
 public class Main {
     public static void main(String[] args) {
-        hexTests();
+        //hexTests();
+        boardTests();
     }
 
     public static void hexTests() {
@@ -18,5 +20,13 @@ public class Main {
         System.out.print(hex1);
         System.out.print(hex2);
         System.out.print(hex3);
+    }
+
+    public static void boardTests() {
+        Board board = new Board();
+        Hex[] hexes = board.getHexArray();
+        for(Hex h : hexes) {
+            System.out.println(h);
+        }
     }
 }

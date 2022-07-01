@@ -4,30 +4,31 @@ import java.util.ArrayList;
 
 public class Vertex {
     public final int id;
-    private int settlerID;
+    private Building building;
     private Port port;
-    private ArrayList<Integer> hexIDList;
+    private final ArrayList<Integer> hexIDList;
 
     public Vertex(int id) {
         this.id = id;
-        this.settlerID = -1;
+        this.building = null;
         this.port = null;
         this.hexIDList = new ArrayList<>();
     }
 
     public Vertex(int id, Port port) {
         this.id = id;
-        this.settlerID = -1;
+        this.building = null;
         this.port = port;
         this.hexIDList = new ArrayList<>();
     }
 
-    public int getSettlerID() {
-        return settlerID;
+    //@TODO: Update how buildings are added to vertices and how IDs are set
+    public Building getBuilding() {
+        return building;
     }
 
-    public void setSettlerID(int settlerID) {
-        this.settlerID = settlerID;
+    public void setBuilding(Building building) {
+        this.building = building;
     }
 
     public Port getPort() {

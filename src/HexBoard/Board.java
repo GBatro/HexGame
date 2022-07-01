@@ -11,8 +11,11 @@ public class Board {
     private final Hex[] hexArray; //array to hold the hex objects for the board
     private final Vertex[] vertexArray; //array to hold the vertex objects for the board
     private final Edge[] edgeArray; //array to hold the edge objects for the board
-    private List<Integer>[] adjacencyArray; //gets references to the edge array, but is much quicker to search
+    private List<Integer>[] adjacencyList; //gets references to the edge array, but is much quicker to search
 
+    /**
+     * Creates a hexagonal board with a radius of 3
+     */
     public Board() {
         this.radius = 3;
         this.hexArray = initHexes();
@@ -20,6 +23,10 @@ public class Board {
         this.edgeArray = initEdges();
     }
 
+    /**
+     * Creates a hexagonal board with a radius of "radius"
+     * @param radius number of rings on board
+     */
     public Board(int radius) {
         this.radius = radius;
         this.hexArray = initHexes();
@@ -28,6 +35,10 @@ public class Board {
     }
 
     //@TODO: initialize the array of hexes based on radius
+    /**
+     * Initializes the array that holds the hex information of the board
+     * @return the initialized hex array
+     */
     private Hex[] initHexes() {
         //@TODO: Make variable to size
         //@TODO: Tie 7 to Desert
@@ -49,6 +60,10 @@ public class Board {
     }
 
     //@TODO: initialize the array of vertices based on radius
+    /**
+     * Initializes the array that holds the vertex information of the board
+     * @return the initialized vertex array
+     */
     private Vertex[] initVertices() {
         int numVertices = radius*radius*6;
         Vertex[] vertices = new Vertex[numVertices];
@@ -62,6 +77,10 @@ public class Board {
     }
 
     //@TODO: initialize the edge array as well as the adjacency array based on radius
+    /**
+     * Initializes the array that holds the edge information of the board
+     * @return the initialized edge array
+     */
     private Edge[] initEdges() {
         int numEdges = 1;
         Edge[] edges = new Edge[numEdges];
@@ -69,23 +88,43 @@ public class Board {
         return edges;
     }
 
+    /**
+     * Getter for the radius
+     * @return radius of board
+     */
     public int getRadius() {
         return radius;
     }
 
+    /**
+     * Getter for the hex array
+     * @return array of hex information
+     */
     public Hex[] getHexArray() {
         return hexArray;
     }
 
+    /**
+     * Getter for the vertex array
+     * @return array of vertex information
+     */
     public Vertex[] getVertexArray() {
         return vertexArray;
     }
 
+    /**
+     * Getter for the edge array
+     * @return array of edge information
+     */
     public Edge[] getEdgeArray() {
         return edgeArray;
     }
 
-    public List<Integer>[] getAdjacencyArray() {
-        return adjacencyArray;
+    /**
+     * Getter for adjacency list
+     * @return edge IDs listing adjacency
+     */
+    public List<Integer>[] getAdjacencyList() {
+        return adjacencyList;
     }
 }

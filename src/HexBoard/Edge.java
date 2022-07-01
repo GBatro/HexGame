@@ -26,7 +26,8 @@ public class Edge {
         return road;
     }
 
+    //@TODO: Update how IDs are chose for buildings
     public void addRoad(int settlerID) {
-        this.road = new Building(settlerID, ROAD);
+        this.road = new Building(1, settlerID, ROAD);
     }
 }

@@ -3,15 +3,18 @@ package HexBoard;
 import static HexBoard.BuildingType.*;
 
 public class Building {
+    public final int id;
     private int settlerID;
     private BuildingType buildingType;
 
-    public Building(int settlerID) {
+    public Building(int id, int settlerID) {
+        this.id = id;
         this.settlerID = settlerID;
         this.buildingType = null;
     }
 
-    public Building(int settlerID, BuildingType building) {
+    public Building(int id, int settlerID, BuildingType building) {
+        this.id = id;
         this.settlerID = settlerID;
         this.buildingType = building;
     }

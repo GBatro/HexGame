@@ -69,8 +69,19 @@ public class Hex {
      * Adds an adjacent settler building to the hex
      * @param building settler ID with building type
      */
-    public void addSettler(Building building) {
-        buildingList.add(building);
+    public void setSettler(Building building) {
+        boolean inList = false;
+
+        for(Building b : buildingList){
+            if(b.id == building.id) {
+                inList = true;
+                b = building;
+            }
+        }
+
+        if(!inList) {
+            buildingList.add(building);
+        }
     }
 
     //@TODO: Add updateSettler method or adjust addSettler method using building ID

@@ -27,7 +27,7 @@ public class Vertex {
         return building;
     }
 
-    public void setBuilding(Building building) {
+    public void setBuildingType(Building building) {
         this.building = building;
     }
 

@@ -127,4 +127,15 @@ public class Board {
     public List<Integer>[] getAdjacencyList() {
         return adjacencyList;
     }
+
+    //@TODO:
+    public void setBuilding(int vertexID, int settlerID, BuildingType buildingType) {
+        ArrayList<Integer> hexIDs = vertexArray[vertexID].getHexIDs();
+        Building b = new Building(vertexID, settlerID, buildingType);
+
+        for(int i : hexIDs) {
+            hexArray[i].setSettler(b);
+        }
+        vertexArray[vertexID].setBuildingType(b);
+    }
 }

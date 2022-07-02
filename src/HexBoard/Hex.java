@@ -84,8 +84,6 @@ public class Hex {
         }
     }
 
-    //@TODO: Add updateSettler method or adjust addSettler method using building ID
-
     @Override
     public String toString() {
         String result = sb.append(id).append(":\t").append(hexType).append(" ").append(hexNumber).toString();

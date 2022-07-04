@@ -24,6 +24,8 @@ public class Main {
 
     public static void boardTests() {
         Board board = new Board();
+        board.setBuilding(12, 1, SETTLEMENT);
+        System.out.print(board.getVertexArray()[12]);
         Hex[] hexes = board.getHexArray();
         for(Hex h : hexes) {
             System.out.println(h);

@@ -58,7 +58,7 @@ public class Board {
             resource = resources.remove(toGet);
             //keep same position if DESERT to get 7 as well (both should be at end)
             if(resource != DESERT) {
-                toGet = (int)Math.floor(Math.random() * numbers.size()-numDesert);
+                toGet = (int)Math.floor(Math.random() * Math.max(numbers.size()-numDesert, 1));
             } else {
                 numDesert--;
             }
@@ -138,6 +138,7 @@ public class Board {
         return adjacencyList;
     }
 
+    //@TODO: Add check for nearby settlements
     public void setBuilding(int vertexID, int settlerID, BuildingType buildingType) {
         ArrayList<Integer> hexIDs = vertexArray[vertexID].getHexIDs();
         Building b = new Building(vertexID, settlerID, buildingType);

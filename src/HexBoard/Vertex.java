@@ -3,6 +3,7 @@ package HexBoard;
 import java.util.ArrayList;
 
 public class Vertex {
+    StringBuilder sb = new StringBuilder();
     public final int id;
     private Building building;
     private Port port;
@@ -77,5 +78,10 @@ public class Vertex {
      */
     public void addHexID(int hexID) {
         this.hexIDList.add(hexID);
+    }
+
+    //@TODO: Make better
+    public String toString() {
+        return sb.append(id).append(":\n\t").append(building).toString();
     }
 }

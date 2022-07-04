@@ -41,18 +41,28 @@ public class Board {
      */
     private Hex[] initHexes() {
         //@TODO: Make variable to size
-        //@TODO: Tie 7 to Desert
+        //@TODO: Make numDesert variable to size as well
         List<Resource> resources = new ArrayList<>(Arrays.asList(WOOD, WOOD, WOOD, WOOD, BRICK, BRICK, BRICK, SHEEP, SHEEP, SHEEP, SHEEP, WHEAT, WHEAT, WHEAT, WHEAT, ORE, ORE, ORE, DESERT)); //Wood, Brick, Sheep, Wheat, Ore, Desert (use enum)
-        List<Integer> numbers = new ArrayList<>(Arrays.asList(2,3,3,4,4,5,5,6,6,7,8,8,9,9,10,10,11,11,12)); //2-12
+        List<Integer> numbers = new ArrayList<>(Arrays.asList(2,3,3,4,4,5,5,6,6,8,8,9,9,10,10,11,11,12,7)); //2-12
         int numHexes = (3*(radius-1)*(radius-1))+(3*(radius-1))+1;
         Hex[] hexes = new Hex[numHexes];
 
         Resource resource;
         int number;
 
+        int numDesert = 1;
+        int toGet;
+
         for(int i = 0; i < numHexes; i++) {
-            resource = resources.remove((int)Math.floor(Math.random() * resources.size()));
-            number = numbers.remove((int)Math.floor(Math.random() * numbers.size()));
+            toGet = (int)Math.floor(Math.random() * resources.size());
+            resource = resources.remove(toGet);
+            //keep same position if DESERT to get 7 as well (both should be at end)
+            if(resource != DESERT) {
+                toGet = (int)Math.floor(Math.random() * numbers.size()-numDesert);
+            } else {
+                numDesert--;
+            }
+            number = numbers.remove(toGet);
             hexes[i] = new Hex(i, number, resource);
         }
 
@@ -128,7 +138,6 @@ public class Board {
         return adjacencyList;
     }
 
-    //@TODO:
     public void setBuilding(int vertexID, int settlerID, BuildingType buildingType) {
         ArrayList<Integer> hexIDs = vertexArray[vertexID].getHexIDs();
         Building b = new Building(vertexID, settlerID, buildingType);
